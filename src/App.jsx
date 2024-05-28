@@ -1,8 +1,10 @@
-import "./App.css";
+import Header from "./components/Header.jsx";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">Quiz App React Tailwind</h1>
+    <>
+      <Header />
+    </>
   );
 }
 

@@ -5,8 +5,9 @@ export default {
     extend: {
       colors: {
         white: "#FEFEFE",
+        pink: "#e781fb",
         blau: {
-          100: "#C9ECF9",
+          100: "#ABE5FA",
           200: "#03bcff",
           300: "#03A4DE",
           500: "#0374FF",
@@ -21,6 +22,9 @@ export default {
       },
       dropShadow: {
         xl: "0 0 4px rgba(0, 0, 0, 0.6)",
+      },
+      boxShadow: {
+        sm: "1px 1px 8px 4px rgba(12, 5, 32, 0.6)",
       },
       lineHeight: {
         extraLoose: "1.5",
@@ -47,6 +51,12 @@ export default {
         },
         ".webkit-text-size-adjust-100": {
           "-webkit-text-size-adjust": "100%",
+        },
+        ".webkit-background-clip": {
+          "-webkit-background-clip": "text",
+        },
+        ".webkit-text-fill-color": {
+          "-webkit-text-fill-color": "transparent",
         },
       };
       addUtilities(newUtilities);

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import QUESTIONS from "../questions.js";
+import QuestionsTimer from "./QuestionsTimer.jsx";
 import logoCompleted from "../assets/completed-logo.png";
 
 export default function Quis() {
@@ -42,6 +43,10 @@ export default function Quis() {
   return (
     <div className={quizContainerClasses}>
       <div className="question">
+        <QuestionsTimer
+          timeout={10000}
+          onTimeout={() => handleAnswerClick(null)}
+        />
         <h2 className="text-2xl font-normal mx-0 mt-2 mb-10 text-white">
           {QUESTIONS[activeIndexQuestion].text}
         </h2>

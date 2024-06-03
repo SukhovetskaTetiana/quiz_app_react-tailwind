@@ -15,3 +15,22 @@
     font-family: "Roboto Condensed", sans-serif;
   }
 }
+
+.progress-bar {
+  --bg-color: #5703ff;
+}
+
+.progress-bar::-webkit-progress-bar {
+  background-color: #1e015269;
+  border-radius: 24px;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: var(--bg-color);
+  border-radius: 24px;
+}
+
+.progress-bar::-moz-progress-bar {
+  background-color: var(--bg-color);
+  border-radius: 24px;
+}

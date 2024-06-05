@@ -56,7 +56,11 @@ export default function Quis() {
   return (
     <div className={quizContainerClasses}>
       <div className="question">
-        <QuestionsTimer timeout={10000} onTimeout={handleSkipAnswers} />
+        <QuestionsTimer
+          key={activeIndexQuestion}
+          timeout={10000}
+          onTimeout={handleSkipAnswers}
+        />
         <h2 className="text-2xl font-normal mx-0 mt-2 mb-10 text-white">
           {QUESTIONS[activeIndexQuestion].text}
         </h2>

@@ -20,24 +20,54 @@ export default function Quis() {
   const h2IsCompletedAnswersClasses =
     "text-[3rem] text-center m-0 uppercase text-blau-800";
 
+  const answerCssClass = "w-[90%] my-[1rem] mx-auto";
+
+  const selectedCssClass = "bg-[#f5a76c] text-[#2c203d]";
+
+  const correctCssClass = "bg-[#5af59d] text-[#2c203d]";
+
+  const wrongCssClass = "bg-[#f55a98] text-[#2c203d]";
+
+  const [answerState, setAnswerState] = useState("");
   const [userAnswer, setUserAnswer] = useState([]);
+  // const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  const activeIndexQuestion = userAnswer.length;
+  const activeIndexQuestion =
+    answerState === "" ? userAnswer.length : userAnswer.length - 1;
 
-  const handleAnswerClick = useCallback(function (selectAnswer) {
-    setUserAnswer((prevAnswer) => {
-      return [...prevAnswer, selectAnswer];
-    });
-  }, []);
+  const isCompletedQuiz = activeIndexQuestion === QUESTIONS.length;
+
+  const handleAnswerClick = useCallback(
+    function handleAnswerClick(selectedAnswer) {
+      // setSelectedAnswer(selectedAnswer);
+      setAnswerState("answered");
+
+      setUserAnswer((prevUserAnswer) => {
+        return [...prevUserAnswer, selectedAnswer];
+      });
+
+      setTimeout(() => {
+        if (selectedAnswer === QUESTIONS[activeIndexQuestion].answers[0]) {
+          setAnswerState(correctCssClass);
+        } else {
+          setAnswerState(wrongCssClass);
+        }
+
+        setTimeout(() => {
+          setAnswerState("");
+          // setSelectedAnswer(null);
+        }, 3000);
+      }, 2000);
+    },
+    [activeIndexQuestion]
+  );
 
   const handleSkipAnswers = useCallback(
     () => handleAnswerClick(null),
     [handleAnswerClick]
   );
 
-  const isCompletedAnswers = activeIndexQuestion === QUESTIONS.length;
-
-  if (isCompletedAnswers) {
+  if (isCompletedQuiz) {
     return (
       <div className={divIsCompletedAnswersClasses}>
         <img
@@ -67,16 +97,32 @@ export default function Quis() {
       </div>
       <div className="list-none m-0 p-0 flex flex-col items-center gap-2">
         <ul>
-          {shufflingAnswersArray.map((answer) => (
-            <li key={answer} className="w-[90%] mx-auto my-[1rem]">
-              <button
-                onClick={() => handleAnswerClick(answer)}
-                className={buttonClasses}
-              >
-                {answer}
-              </button>
-            </li>
-          ))}
+          {shufflingAnswersArray.map((answer) => {
+            const isSelected = userAnswer[userAnswer.length - 1] === answer;
+            let answerAdditionalCssClass = "";
+
+            if (answerState === "answered" && isSelected) {
+              answerAdditionalCssClass = selectedCssClass;
+            }
+            if (
+              (answerState === correctCssClass ||
+                answerState === wrongCssClass) &&
+              isSelected
+            ) {
+              answerAdditionalCssClass = answerState;
+            }
+
+            return (
+              <li key={answer} className={answerCssClass}>
+                <button
+                  onClick={() => handleAnswerClick(answer)}
+                  className={`${buttonClasses} ${answerAdditionalCssClass}`}
+                >
+                  {answer}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

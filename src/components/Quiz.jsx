@@ -17,40 +17,20 @@ export default function Quis() {
   const h2IsCompletedAnswersClasses =
     "text-[3rem] text-center m-0 uppercase text-blau-800";
 
-  const correctCssClass = "bg-[#5af59d] text-[#2c203d]";
-
-  const wrongCssClass = "bg-[#f55a98] text-[#2c203d]";
-
-  const [answerState, setAnswerState] = useState("");
   const [userAnswer, setUserAnswer] = useState([]);
 
-  const activeIndexQuestion =
-    answerState === "" ? userAnswer.length : userAnswer.length - 1;
+  const activeIndexQuestion = userAnswer.length;
 
   const isCompletedQuiz = activeIndexQuestion === QUESTIONS.length;
 
-  const handleAnswerClick = useCallback(
-    function handleAnswerClick(selectedAnswer) {
-      setAnswerState("answered");
-
-      setUserAnswer((prevUserAnswer) => {
-        return [...prevUserAnswer, selectedAnswer];
-      });
-
-      setTimeout(() => {
-        if (selectedAnswer === QUESTIONS[activeIndexQuestion].answers[0]) {
-          setAnswerState(correctCssClass);
-        } else {
-          setAnswerState(wrongCssClass);
-        }
-
-        setTimeout(() => {
-          setAnswerState("");
-        }, 2000);
-      }, 1000);
-    },
-    [activeIndexQuestion]
-  );
+  const handleAnswerClick = useCallback(function handleAnswerClick(
+    selectedAnswer
+  ) {
+    setUserAnswer((prevUserAnswer) => {
+      return [...prevUserAnswer, selectedAnswer];
+    });
+  },
+  []);
 
   const handleSkipAnswers = useCallback(
     () => handleAnswerClick(null),
@@ -74,14 +54,9 @@ export default function Quis() {
     <div className={quizContainerClasses}>
       <Question
         key={activeIndexQuestion}
-        questionText={QUESTIONS[activeIndexQuestion].text}
-        answers={QUESTIONS[activeIndexQuestion].answers}
-        answerState={answerState}
-        selectedAnswer={userAnswer[userAnswer.length - 1]}
-        onSkipAnswers={handleSkipAnswers}
-        onAnswerClick={handleAnswerClick}
-        correctCssClass={correctCssClass}
-        wrongCssClass={wrongCssClass}
+        index={activeIndexQuestion}
+        onSkipAnswer={handleSkipAnswers}
+        onSelectAnswer={handleAnswerClick}
       />
     </div>
   );

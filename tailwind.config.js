@@ -5,6 +5,9 @@ export default {
     extend: {
       colors: {
         white: "#FEFEFE",
+        correctGreen: "#078059",
+        wrongPink: "#f55a98",
+        skippedColor: "#7C25F6C3",
         pink: "#e781fb",
         pinkLight: {
           100: "#F5DAFB",
@@ -28,6 +31,20 @@ export default {
           900: "#1E015269",
         },
       },
+      fontWeight: {
+        thin: "100",
+        hairline: "100",
+        extralight: "200",
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+        extrabold: "800",
+        "extra-bold": "800",
+        black: "900",
+      },
+
       fontFamily: {
         roboto: ['"Roboto Condensed"', "sans-serif"],
       },

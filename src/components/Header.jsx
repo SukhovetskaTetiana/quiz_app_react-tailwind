@@ -5,7 +5,7 @@ export default function Header() {
     "my-[2rem] mx-0 text-center flex flex-col items-center gap-2";
 
   const h1Classes =
-    "font-bold text-[2.5rem] tracking-[0.6rem] m-0 uppercase bg-gradient-to-r from-pink from-[40%] via-blau-200 via-[60%] webkit-background-clip webkit-text-fill-color";
+    "font-black text-[2.5rem] tracking-[0.6rem] m-0 uppercase bg-gradient-to-r from-pink from-[40%] via-blau-200 via-[60%] webkit-background-clip webkit-text-fill-color";
 
   return (
     <header className={headerClasses}>

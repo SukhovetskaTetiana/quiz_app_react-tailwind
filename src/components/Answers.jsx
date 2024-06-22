@@ -18,7 +18,6 @@ export default function Answers({
     shufflingAnswersArray.current.sort(() => Math.random() - 0.5);
   }
 
-  console.log("Current answerState:", answerState);
   return (
     <ul className="list-none m-0 p-0 flex flex-col items-center">
       {shufflingAnswersArray.current.map((answer) => {

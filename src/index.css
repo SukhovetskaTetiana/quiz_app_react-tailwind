@@ -16,7 +16,7 @@
   }
 }
 
-.progress-bar {
+/* .progress-bar {
   --bg-color: #5703ff;
 }
 
@@ -33,7 +33,7 @@
 .progress-bar::-moz-progress-bar {
   background-color: var(--bg-color);
   border-radius: 24px;
-}
+} */
 
 .selected {
   background: linear-gradient(180deg, #fbda81 0%, #f8b173 100%);

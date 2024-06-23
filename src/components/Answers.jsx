@@ -7,7 +7,7 @@ export default function Answers({
   answerState,
 }) {
   const buttonClasses =
-    "inline-block w-[100%] h-[10%] size-[0.9rem] py-[0.5rem] px-[2rem] rounded-3xl bg-gradient-to-b from-blau-100 to-blau-200 cursor-pointer transition-all duration-200 ease-in-out hover:from-pink hover:to-blau-700 hover:text-white";
+    "inline-block w-[100%] h-[100%] size-[0.9rem] py-[0.5rem] px-[2rem] rounded-3xl bg-gradient-to-b from-blau-100 to-blau-200 cursor-pointer transition-all duration-200 ease-in-out hover:from-pink hover:to-blau-700 hover:text-white";
 
   const answerCssClass = "w-[90%] my-[0.5rem] mx-auto";
 
@@ -19,7 +19,7 @@ export default function Answers({
   }
 
   return (
-    <ul className="list-none m-0 p-0 flex flex-col items-center">
+    <ul className="list-none m-0 p-0 flex flex-col items-center min-h-[100px]">
       {shufflingAnswersArray.current.map((answer) => {
         const isSelected = userSelectedAnswer === answer;
         let answerAdditionalCssClass = "";

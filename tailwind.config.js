@@ -5,10 +5,11 @@ export default {
     extend: {
       colors: {
         white: "#FEFEFE",
+        gleyLight: "#d8cde8",
+        blackBg: "#2c203d",
         correctGreen: "#078059",
         wrongPink: "#f55a98",
-        skippedColor: "#7C25F6C3",
-        pink: "#e781fb",
+        skippedColor: "#482A71C3",
         pinkLight: {
           100: "#F5DAFB",
           200: "#F0BBFC",
@@ -31,20 +32,6 @@ export default {
           900: "#1E015269",
         },
       },
-      fontWeight: {
-        thin: "100",
-        hairline: "100",
-        extralight: "200",
-        light: "300",
-        normal: "400",
-        medium: "500",
-        semibold: "600",
-        bold: "700",
-        extrabold: "800",
-        "extra-bold": "800",
-        black: "900",
-      },
-
       fontFamily: {
         roboto: ['"Roboto Condensed"', "sans-serif"],
       },
@@ -73,6 +60,18 @@ export default {
     },
   },
   plugins: [
+    function ({ addBase }) {
+      addBase({
+        "::-webkit-progress-bar": {
+          background: "#6a558a",
+          borderRadius: "24px",
+        },
+        "::-webkit-progress-value": {
+          background: "#9e5ef8",
+          borderRadius: "24px",
+        },
+      });
+    },
     function ({ addUtilities }) {
       const newUtilities = {
         ".font-synthesis-none": {

@@ -1,4 +1,8 @@
-# QUIZ Application #####(React+Tailwind)
+<img src='./src/assets/quiz-logo.png' alt='Four squares with letters q, u, i, z' title='Quiz Logo' width='70' />
+
+# QUIZ Application
+
+##### (React+Tailwind)
 
 This project is an interactive quiz created using React and Tailwind. Its main goal is to allow users to take the quiz, answer questions, and receive feedback on the correctness of their answers. At the end of the quiz, users receive a summary of their responses, which helps them evaluate their knowledge and skills.
 
